@@ -8,7 +8,7 @@ class Jpegoptim extends BaseOptimizer
 {
     public $binaryName = 'jpegoptim';
 
-    public function canHandle(Image $image): bool
+    public function canHandle(Image $image)
     {
         return $image->mime() === 'image/jpeg';
     }

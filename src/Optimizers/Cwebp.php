@@ -8,12 +8,12 @@ class Cwebp extends BaseOptimizer
 {
     public $binaryName = 'cwebp';
 
-    public function canHandle(Image $image): bool
+    public function canHandle(Image $image)
     {
         return $image->mime() === 'image/webp';
     }
 
-    public function getCommand(): string
+    public function getCommand()
     {
         $optionString = implode(' ', $this->options);
 

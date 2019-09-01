@@ -8,7 +8,7 @@ class Svgo extends BaseOptimizer
 {
     public $binaryName = 'svgo';
 
-    public function canHandle(Image $image): bool
+    public function canHandle(Image $image)
     {
         if ($image->extension() !== 'svg') {
             return false;
@@ -22,7 +22,7 @@ class Svgo extends BaseOptimizer
         ]);
     }
 
-    public function getCommand(): string
+    public function getCommand()
     {
         $optionString = implode(' ', $this->options);
 
