@@ -8,12 +8,12 @@ class Pngquant extends BaseOptimizer
 {
     public $binaryName = 'pngquant';
 
-    public function canHandle(Image $image): bool
+    public function canHandle(Image $image)
     {
         return $image->mime() === 'image/png';
     }
 
-    public function getCommand(): string
+    public function getCommand()
     {
         $optionString = implode(' ', $this->options);
 

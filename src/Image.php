@@ -8,7 +8,7 @@ class Image
 {
     protected $pathToImage = '';
 
-    public function __construct(string $pathToImage)
+    public function __construct($pathToImage)
     {
         if (! file_exists($pathToImage)) {
             throw new InvalidArgumentException("`{$pathToImage}` does not exist");
@@ -17,17 +17,17 @@ class Image
         $this->pathToImage = $pathToImage;
     }
 
-    public function mime(): string
+    public function mime()
     {
         return mime_content_type($this->pathToImage);
     }
 
-    public function path(): string
+    public function path()
     {
         return $this->pathToImage;
     }
 
-    public function extension(): string
+    public function extension()
     {
         $extension = pathinfo($this->pathToImage, PATHINFO_EXTENSION);
 

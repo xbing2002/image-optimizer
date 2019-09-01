@@ -8,7 +8,7 @@ class Optipng extends BaseOptimizer
 {
     public $binaryName = 'optipng';
 
-    public function canHandle(Image $image): bool
+    public function canHandle(Image $image)
     {
         return $image->mime() === 'image/png';
     }
