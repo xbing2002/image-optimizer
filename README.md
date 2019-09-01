@@ -29,7 +29,7 @@ Using WordPress? Then try out [the WP CLI command](https://github.com/TypistTech
 You can install the package via composer:
 
 ```bash
-composer require spatie/image-optimizer
+composer require xbing2002/image-optimizer dev-master
 ```
 
 ### Optimization tools
