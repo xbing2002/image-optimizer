@@ -4,6 +4,7 @@ namespace Spatie\ImageOptimizer;
 
 use Illuminate\Support\Facades\Log;
 use Psr\Log\LoggerInterface;
+use Spatie\ImageOptimizer\Optimizers\Tinypng;
 use Symfony\Component\Process\Process;
 
 class OptimizerChain
@@ -91,18 +92,31 @@ class OptimizerChain
 
         $optimizer->setImagePath($image->path());
 
-        $command = $optimizer->getCommand();
 
-        $this->logger->info("Executing `{$command}`");
-        
-        $process =  new Process($command);
-        //$process = Process::fromShellCommandline($command);
 
-        $process
-            ->setTimeout($this->timeout)
-            ->run();
+        if($optimizer instanceof \Spatie\ImageOptimizer\Optimizers\Tinypng)
+        {
+            try {
+                $command = $optimizer->getCommand();
+            }catch (\Exception $exception)
+            {
+                $this->logger->error($exception->getMessage());
+            }
+        }else
+        {
+            $command = $optimizer->getCommand();
+            $this->logger->info("Executing `{$command}`");
 
-        $this->logResult($process);
+            $process =  new Process($command);
+            //$process = Process::fromShellCommandline($command);
+
+            $process
+                ->setTimeout($this->timeout)
+                ->run();
+
+            $this->logResult($process);
+        }
+
     }
 
     protected function logResult(Process $process)

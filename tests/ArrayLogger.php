@@ -53,12 +53,12 @@ class ArrayLogger implements LoggerInterface
         $this->logLines[] = "log: {$message}";
     }
 
-    public function getAllLines(): array
+    public function getAllLines()
     {
         return $this->logLines;
     }
 
-    public function getAllLinesAsString(): string
+    public function getAllLinesAsString()
     {
         return implode(PHP_EOL, $this->getAllLines());
     }

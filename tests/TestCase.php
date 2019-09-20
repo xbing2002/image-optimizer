@@ -12,7 +12,7 @@ class TestCase extends BaseTest
     /** @var \Monolog\Logger */
     public $logger;
 
-    public function setUp(): void
+    public function setUp()
     {
         $this->emptyTempDirectory();
 
@@ -32,7 +32,7 @@ class TestCase extends BaseTest
         }
     }
 
-    public function getTempFilePath(string $fileName)
+    public function getTempFilePath($fileName)
     {
         $source = __DIR__."/testfiles/{$fileName}";
 
@@ -43,12 +43,12 @@ class TestCase extends BaseTest
         return $destination;
     }
 
-    public function getTestFilePath(string $fileName)
+    public function getTestFilePath($fileName)
     {
         return __DIR__."/testfiles/{$fileName}";
     }
 
-    public function assertDecreasedFileSize(string $modifiedFilePath, string $originalFilePath)
+    public function assertDecreasedFileSize($modifiedFilePath, $originalFilePath)
     {
         $this->assertFileExists($originalFilePath);
 
