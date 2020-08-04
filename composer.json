@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "php": "~7.*",
+        "php": "^5.6",
         "ext-fileinfo": "*",
         "monolog/monolog": "1.x",
         "psr/log": "^1.0",
