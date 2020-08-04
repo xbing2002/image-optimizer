@@ -94,28 +94,18 @@ class OptimizerChain
 
 
 
-        if($optimizer instanceof \Spatie\ImageOptimizer\Optimizers\Tinypng)
-        {
-            try {
-                $command = $optimizer->getCommand();
-            }catch (\Exception $exception)
-            {
-                $this->logger->error($exception->getMessage());
-            }
-        }else
-        {
-            $command = $optimizer->getCommand();
-            $this->logger->info("Executing `{$command}`");
+        $command = $optimizer->getCommand();
+        $this->logger->info("Executing `{$command}`");
 
-            $process =  new Process($command);
-            //$process = Process::fromShellCommandline($command);
+        $process =  new Process($command);
+        //$process = Process::fromShellCommandline($command);
 
-            $process
-                ->setTimeout($this->timeout)
-                ->run();
+        $process
+            ->setTimeout($this->timeout)
+            ->run();
 
-            $this->logResult($process);
-        }
+        $this->logResult($process);
+
 
     }
 
