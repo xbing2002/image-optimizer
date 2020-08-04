@@ -15,8 +15,7 @@ class OptimizerChainFactory
     public static function create()
     {
         return (new OptimizerChain())
-            ->addOptimizer(new Tinypng([]))
-            /*->addOptimizer(new Jpegoptim([
+            ->addOptimizer(new Jpegoptim([
                 '-m85',
                 '--strip-all',
                 '--all-progressive',
@@ -28,7 +27,7 @@ class OptimizerChainFactory
                 '-i0',
                 '-o2',
                 '-quiet',
-            ]))*/
+            ]))
             ->addOptimizer(new Svgo([
                 '--disable={cleanupIDs,removeViewBox}',
             ]))
